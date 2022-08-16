@@ -1,8 +1,4 @@
 import React from 'react';
-import _ from 'lodash';
-
-const foo = _.isObject({});
-console.log(foo);
 
 export const App = () => (
   <div className="container">
