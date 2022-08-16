@@ -1,0 +1,16 @@
+.navigationInner {
+  display: flex;
+  gap: 10px;
+}
+
+.navigationLink {
+  color: $colorLink;
+
+  &:hover {
+    color: $colorLinkHover;
+  }
+
+  &.active {
+    color:   $colorLinkActive;
+  }
+}

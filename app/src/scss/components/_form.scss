@@ -1,0 +1,27 @@
+.formRow {
+  @include pb($size: 4);
+}
+
+.formLabel {
+  display: flex;
+  flex-direction: column;
+}
+
+.formLabel-name {
+  @include pb($size: 2);
+}
+
+.formField {
+  @include py($size: 3);
+  @include px($size: 5);
+  border: 1px solid $formFieldBorderColor;
+  border-radius: $formFieldBorderRadius;
+
+  &:focus {
+    border-color: $formFieldBorderColorActive;
+  }
+}
+
+.formButtons {
+  padding-bottom: 20px;
+}
