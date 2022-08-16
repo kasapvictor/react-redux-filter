@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Spartan:wght@500;700&display=swap');
 
 /* COLORS */
-$primary: hsl(180, 29%, 50%);
-$gray100: hsl(180, 52%, 96%);
-$gray200: hsl(180, 31%, 95%);
-$gray800 hsl(180, 8%, 52%);
-$gray900: hsl(180, 14%, 20%);
+$primary: #5BA4A4FF;
+$gray100: #EFFAFAFF;
+$gray200: #EEF6F6FF;
+$gray800: #7B8E8EFF;
+$gray900: #2C3A3A;
 
 /* FONTS */
 $fsNormal: 15px;
@@ -34,14 +34,14 @@ body {
 }
 
 .container {
-  width: 100;
+  width: 100%;
   padding: 0 0.75rem;
   margin: 0 auto;
 }
 
 .header {
   min-height: 156px;
-  background-image: url(../../svg/bg-header-mobile.svg);
+  background-image: url("../svg/bg-header-mobile.svg");
   background-repeat: no-repeat;
   background-size: cover;
   background-color: $primary;
@@ -103,7 +103,7 @@ body {
   background-color: $gray900;
   color: $gray100;
 }
-.badge.badge$primary {
+.badge.badge--primary {
   background-color: $primary;
   color: $gray100;
 }
@@ -212,7 +212,7 @@ body {
 
 @media (min-width: 1024px) {
   .header {
-    background-image: url(../../svg/bg-header-desktop.svg);
+    background-image: url("../svg/bg-header-desktop.svg");
   }
   .container {
     max-width: 1000px;
@@ -225,7 +225,7 @@ body {
   .job-position-info {
     padding: 0;
     margin-bottom: 0;
-    border-bottom: 0px;
+    border-bottom: 0;
   }
 
   .job-position-avatar {

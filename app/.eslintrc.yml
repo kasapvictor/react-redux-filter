@@ -19,4 +19,9 @@ rules: {
     "groups": [ "builtin", "external", "internal", "parent", "sibling", "index", "object", "type" ],
     "newlines-between": "always",
   }],
+  "comma-dangle": ["error", {
+    "functions": "only-multiline",
+    "objects": "always",
+    "arrays": "always",
+  }],
 }
