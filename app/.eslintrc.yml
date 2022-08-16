@@ -21,7 +21,7 @@ rules: {
   }],
   "comma-dangle": ["error", {
     "functions": "only-multiline",
-    "objects": "always",
-    "arrays": "always",
+    "objects": "only-multiline",
+    "arrays": "only-multiline",
   }],
 }
