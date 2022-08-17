@@ -14,6 +14,12 @@ const positionSlice = createSlice({
         state.filtered = [...state.filtered, payload];
       }
     },
+    clearedFilteredPositions: (state) => {
+      state.filtered = [];
+    },
+    removedItemFilteredPositions: (state, { payload }) => {
+      state.filtered = state.filtered.filter((item) => item !== payload);
+    },
   },
 });
 
@@ -23,6 +29,7 @@ export const {
   selectIds: selectPositionsIds,
 } = positionsAdapter.getSelectors((state) => state.positions);
 
-export const { addedPositions, addedFilteredPositions } = positionSlice.actions;
+export const { addedPositions, addedFilteredPositions, clearedFilteredPositions, removedItemFilteredPositions } =
+  positionSlice.actions;
 
 export default positionSlice.reducer;

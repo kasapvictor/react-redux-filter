@@ -92,6 +92,7 @@ body {
 }
 .badge > span {
   padding: 0.25rem 1rem;
+  font-size: 1.4rem
 }
 .badge:hover {
   color: $gray100;
@@ -116,6 +117,7 @@ body {
   color: $primary;
 }
 .badge-remover {
+  width: 30px;
   background-color: $primary;
   color: $gray100;
   cursor: pointer;
@@ -131,6 +133,7 @@ body {
 
 .filter-panel {
   margin-top: -32px;
+  padding: 10px;
 }
 
 .filter-panel-wrapper {

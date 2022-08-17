@@ -43,12 +43,12 @@ export const Position = ({ positionId }) => {
               {(isNew || featured) && (
                 <Stack>
                   {isNew && (
-                    <Badge variant="rounded" colorScheme="primary">
+                    <Badge variant="rounded" colorScheme="primary" noClickable={true}>
                       NEW!
                     </Badge>
                   )}
                   {featured && (
-                    <Badge variant="rounded" colorScheme="dark">
+                    <Badge variant="rounded" colorScheme="dark" noClickable={true}>
                       FEATURED
                     </Badge>
                   )}

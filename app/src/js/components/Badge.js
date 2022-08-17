@@ -5,24 +5,30 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RemoveIcon } from '../icons';
 import { addedFilteredPositions } from '../features/positions/PositionsSlice';
 
-export const Badge = ({ variant = 'basic', colorScheme = 'light', children }) => {
+export const Badge = ({ variant = 'basic', colorScheme = 'light', children, onClear, noClickable = false }) => {
   const dispatch = useDispatch();
 
   const handleFilter = (item) => () => {
     dispatch(addedFilteredPositions(item));
   };
 
-  const handleClear = (item) => () => {
-    console.log('handleClear', item);
-  };
-
   return (
-    <div className={`badge badge--${variant} badge--${colorScheme}`} onClick={handleFilter(children)}>
-      <span>{children}</span>
+    <div className={`badge badge--${variant} badge--${colorScheme}`}>
+      {noClickable && <span>{children}</span>}
+      {!noClickable && <span onClick={handleFilter(children)}>{children}</span>}
       {variant === 'clearable' && (
-        <div className="badge-remover" onClick={handleClear(children)}>
-          <RemoveIcon />
-        </div>
+        <>
+          {noClickable && (
+            <div className="badge-remover">
+              <RemoveIcon />
+            </div>
+          )}
+          {!noClickable && (
+            <div className="badge-remover" onClick={onClear}>
+              <RemoveIcon />
+            </div>
+          )}
+        </>
       )}
     </div>
   );
@@ -33,5 +39,5 @@ Badge.propTypes = {
   colorScheme: PropTypes.oneOf(['light', 'primary', 'dark']),
   children: PropTypes.node.isRequired,
   onClear: PropTypes.func,
-  onClick: PropTypes.func,
+  noClickable: PropTypes.bool,
 };
