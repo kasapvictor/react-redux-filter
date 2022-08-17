@@ -1,6 +1,6 @@
 # About
 
-Example ToDo App (React, Redux)
+Example Filter Positions App (React, Redux)
 
 ### Includes packages
 
