@@ -8,9 +8,6 @@ export const Card = ({ children, isFeatured = false, className = '' }) => {
     [className]: className,
   });
 
-  // eslint-disable-next-line no-console
-  console.log('cardClasses', cardClasses);
-
   return <div className={cardClasses}>{children}</div>;
 };
 

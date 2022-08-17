@@ -1,14 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { RemoveIcon } from '../icons';
+import { addedFilteredPositions } from '../features/positions/PositionsSlice';
 
-export const Badge = (variant = 'basic', colorScheme = 'light', children, onClear, onClick) => {
+export const Badge = ({ variant = 'basic', colorScheme = 'light', children }) => {
+  const dispatch = useDispatch();
+
+  const handleFilter = (item) => () => {
+    dispatch(addedFilteredPositions(item));
+  };
+
+  const handleClear = (item) => () => {
+    console.log('handleClear', item);
+  };
+
   return (
-    <div className={`badge badge--${variant} badge--${colorScheme}`} onClick={onClick}>
+    <div className={`badge badge--${variant} badge--${colorScheme}`} onClick={handleFilter(children)}>
       <span>{children}</span>
       {variant === 'clearable' && (
-        <div className="badge-remover" onClick={onClear}>
+        <div className="badge-remover" onClick={handleClear(children)}>
           <RemoveIcon />
         </div>
       )}

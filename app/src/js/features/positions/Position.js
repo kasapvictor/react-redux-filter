@@ -1,15 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
+import intersection from 'lodash/intersection';
 
 import { Card, Stack, Badge } from '../../components';
 
 import { selectPositionById } from './PositionsSlice';
 
 export const Position = ({ positionId }) => {
+  const filteredPositions = useSelector((state) => state.positions.filtered);
   const positionItem = useSelector((state) => selectPositionById(state, positionId));
   const {
-    id,
     company,
     logo,
     new: isNew,
@@ -22,11 +23,14 @@ export const Position = ({ positionId }) => {
     location,
     languages,
     tools,
-    handleAddFilter,
   } = positionItem;
   const badges = [role, level, ...languages, ...tools];
 
-  // console.log('badges', badges);
+  const filteredIntersection = intersection(filteredPositions, badges);
+
+  if (filteredPositions.length > 0 && filteredIntersection.length === 0) {
+    return null;
+  }
 
   return (
     <Card isFeatured={featured}>
@@ -61,9 +65,7 @@ export const Position = ({ positionId }) => {
         </div>
         <Stack>
           {badges.map((item) => (
-            <Badge key={item} onClick={() => handleAddFilter(item)}>
-              {item}
-            </Badge>
+            <Badge key={item}>{item}</Badge>
           ))}
         </Stack>
       </div>
